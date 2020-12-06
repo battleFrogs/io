@@ -1,18 +1,19 @@
 package com.gjc.io.f_communicate;
 
 
+import com.alibaba.fastjson.JSON;
+
 public class JSONSerializer implements Serializer {
 
 
     @Override
     public byte getSerializerAlgorithm() {
 
-        return  SerializerAlgorithm.JSON;
+        return SerializerAlgorithm.JSON;
     }
 
     @Override
     public byte[] serialize(Object object) {
-
 
         return JSON.toJSONBytes(object);
     }
@@ -22,4 +23,5 @@ public class JSONSerializer implements Serializer {
 
         return JSON.parseObject(bytes, clazz);
     }
+
 }
