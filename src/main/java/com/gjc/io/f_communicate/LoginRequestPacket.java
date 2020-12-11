@@ -8,15 +8,14 @@ import static com.gjc.io.f_communicate.Command.LOGIN_REQUEST;
 public class LoginRequestPacket extends Packet {
 
 
-    private Integer userId;
-
+    private String userId;
     private String username;
-
     private String password;
 
-
     @Override
-    public Byte getCommond() {
+    public Byte getCommand() {
         return LOGIN_REQUEST;
     }
+
+
 }
