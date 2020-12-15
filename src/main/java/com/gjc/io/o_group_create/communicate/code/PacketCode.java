@@ -1,18 +1,15 @@
-package com.gjc.io.m_hot_remove.communicate.code;
+package com.gjc.io.o_group_create.communicate.code;
 
-import com.gjc.io.m_hot_remove.communicate.packet.Packet;
-import com.gjc.io.m_hot_remove.communicate.packet.impl.LoginRequestPacket;
-import com.gjc.io.m_hot_remove.communicate.packet.impl.LoginResponsePacket;
-import com.gjc.io.m_hot_remove.communicate.packet.impl.MessageRequestPacket;
-import com.gjc.io.m_hot_remove.communicate.packet.impl.MessageResponsePacket;
-import com.gjc.io.m_hot_remove.communicate.serialize.JSONSerializer;
-import com.gjc.io.m_hot_remove.communicate.serialize.Serializer;
+import com.gjc.io.o_group_create.communicate.packet.Packet;
+import com.gjc.io.o_group_create.communicate.packet.impl.*;
+import com.gjc.io.o_group_create.communicate.serialize.JSONSerializer;
+import com.gjc.io.o_group_create.communicate.serialize.Serializer;
 import io.netty.buffer.ByteBuf;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.gjc.io.m_hot_remove.communicate.constant.Command.*;
+import static com.gjc.io.o_group_create.communicate.constant.Command.*;
 
 public class PacketCode {
 
@@ -47,6 +44,8 @@ public class PacketCode {
         packetTypeMap.put(LOGIN_RESPONSE, LoginResponsePacket.class);
         packetTypeMap.put(MESSAGE_REQUEST, MessageRequestPacket.class);
         packetTypeMap.put(MESSAGE_RESPONSE, MessageResponsePacket.class);
+        packetTypeMap.put(CREATE_GROUP_REQUEST, CreateGroupRequestPacket.class);
+        packetTypeMap.put(CREATE_GROUP_RESPONSE, CreateGroupResponsePacket.class);
 
         serializerMap = new HashMap<>();
         Serializer serializer = new JSONSerializer();
@@ -68,7 +67,6 @@ public class PacketCode {
         byteBuf.writeByte(packet.getCommand());
         byteBuf.writeInt(bytes.length);
         byteBuf.writeBytes(bytes);
-        System.out.println(byteBuf);
 
     }
 

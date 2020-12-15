@@ -12,7 +12,7 @@ import io.netty.buffer.ByteBuf;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.gjc.io.j_channel_handler.communicate.constant.Command.*;
+import static com.gjc.io.k_take_part_package.communicate.constant.Command.*;
 
 public class PacketCode {
 

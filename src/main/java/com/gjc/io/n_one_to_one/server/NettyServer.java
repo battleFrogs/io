@@ -25,6 +25,7 @@ public class NettyServer {
                 .group(boosGroup, workerGroup)
                 .channel(NioServerSocketChannel.class)
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
+                    @Override
                     protected void initChannel(NioSocketChannel ch) {
                         // inBound，处理读数据的逻辑链
                         ch.pipeline().addLast(new PacketDecoder());
